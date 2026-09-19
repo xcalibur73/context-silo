@@ -34,13 +34,21 @@ def run_audit(url: str, max_pages: int = 10) -> dict:
 
 
 def main():
+    from context_silo import __version__
     parser = argparse.ArgumentParser(
+        prog="context-silo",
         description="ContextSilo: The Semantic Anchor Text & Vector Contiguity Auditor",
         epilog="Example: python run.py https://webaudits.pro --max-pages 12",
     )
     parser.add_argument(
         "url",
+        nargs="?",
         help="Target URL or domain to audit for semantic anchor text and vector contiguity.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"ContextSilo v{__version__}",
     )
     parser.add_argument(
         "--max-pages",
@@ -62,6 +70,9 @@ def main():
     )
 
     args = parser.parse_args()
+    if not args.url:
+        parser.print_help()
+        return 0
 
     target_url = args.url.strip()
     if not target_url.startswith("http://") and not target_url.startswith("https://"):

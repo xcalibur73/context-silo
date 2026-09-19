@@ -3,6 +3,9 @@ Comprehensive unit tests for ContextSilo: link extraction, passage context, vect
 """
 
 import unittest
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from context_silo.extractor import (
     normalize_url,
     is_internal_url,
