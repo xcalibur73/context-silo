@@ -5,8 +5,9 @@
 
 
 Semantic anchor text and vector contiguity auditor.
-
 Part of the [WebAudits.pro](https://webaudits.pro) technical intelligence platform.
+
+> **Interactive Web Tool**: Run live internal anchor text and semantic vector audits directly in your browser at [webaudits.pro/tools/context-silo](https://webaudits.pro/tools/context-silo).
 
 ![Terminal Verification](assets/terminal_preview.png)
 

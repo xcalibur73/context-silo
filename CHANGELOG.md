@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-09-24
+
+### Fixed
+- Added fallback extraction for `aria-label` and `title` attributes on anchor tags containing SVG icons or child images without inner text.
+
+### Added
+- Linked documentation and quickstart instructions to the interactive web tool on [webaudits.pro/tools/context-silo](https://webaudits.pro/tools/context-silo).
+
 ## [1.0.0] - 2026-09-19
 
 ### Added
