@@ -124,11 +124,18 @@ def extract_internal_links_with_context(
 
         anchor_text = a.get_text(separator=" ", strip=True)
         if not anchor_text:
-            img = a.find("img", alt=True)
-            if img:
-                anchor_text = f"[Image Alt: {img['alt'].strip()}]"
+            aria_label = a.get("aria-label", "").strip() if a.get("aria-label") else ""
+            title_attr = a.get("title", "").strip() if a.get("title") else ""
+            if aria_label:
+                anchor_text = aria_label
+            elif title_attr:
+                anchor_text = title_attr
             else:
-                anchor_text = "[Empty Anchor]"
+                img = a.find("img", alt=True)
+                if img:
+                    anchor_text = f"[Image Alt: {img['alt'].strip()}]"
+                else:
+                    anchor_text = "[Empty Anchor]"
 
         # Determine placement
         placement = "content"
